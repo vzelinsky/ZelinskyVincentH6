@@ -12,7 +12,7 @@ public class Tree {
   
   //Constructors
   //No argument constructor that when called creates an empty List
-  public List() {
+  public Tree() {
     //Sets head to null
     this.head = null;
     //Sets tail to null
@@ -196,9 +196,9 @@ public class Tree {
     }
   }
   
-  //deleteList method
-  //Removes references to the List, deleting the List
-  public void deleteList() {
+  //deleteTree method
+  //Removes references to the Tree, deleting the Tree
+  public void deleteTree() {
     //Makes head null
     this.head = null;
     //Makes tail null
