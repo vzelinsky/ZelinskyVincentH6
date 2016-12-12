@@ -11,6 +11,7 @@ public class Node {
   private Node left;
   //Contains a reference to the right child Node object
   private Node right;
+  private int count;
   
   //Constructors
   //Accepts a String argument
@@ -21,6 +22,7 @@ public class Node {
     this.left = null;
     //Sets right to null
     this.right = null;
+    this.count = 1;
   }
   //Accepts arguments for the fields data, left, and right
   public Node(String dataInput, Node l, Node r) {
@@ -30,6 +32,7 @@ public class Node {
     this.left = l;
     //Sets right to the third argument passed, a reference to a Node object
     this.right = r;
+    this.count = 1;
   }
   
   //Getter methods
@@ -45,6 +48,9 @@ public class Node {
   public Node getRight(){
     return right;
   }
+  public int getCount(){
+    return count;
+  }
   //Setter methods
   //Sets the data field to the argument passed
   public void setData(String dataInput){
@@ -57,5 +63,8 @@ public class Node {
   //Sets the left Node to the referenced Node in the argument
   public void setLeft(Node leftInput){
     this.left = leftInput;
+  }
+  public void incCount(){
+    this.count++;
   }
 }
