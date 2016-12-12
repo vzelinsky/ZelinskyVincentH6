@@ -17,5 +17,13 @@ public class Main {
     myTree.insertNode("Sarah");
     myTree.printInOrder();
     System.out.println(myTree.getRoot().getCount());
+    
+    //myTree.printFrequencyHist();
+    
+    System.out.println(myTree.find("Alberto").getCount());
+    
+    myTree.deleteTree();
+    myTree.importTxt();
+    myTree.printFrequencyHist();
   }
 }
