@@ -11,6 +11,7 @@ public class Node {
   private Node left;
   //Contains a reference to the right child Node object
   private Node right;
+  //Contains an int of the amount of same String Nodes
   private int count;
   
   //Constructors
@@ -22,6 +23,7 @@ public class Node {
     this.left = null;
     //Sets right to null
     this.right = null;
+    //Sets count to 1
     this.count = 1;
   }
   //Accepts arguments for the fields data, left, and right
@@ -32,6 +34,7 @@ public class Node {
     this.left = l;
     //Sets right to the third argument passed, a reference to a Node object
     this.right = r;
+    //Sets count to 1
     this.count = 1;
   }
   
@@ -48,6 +51,7 @@ public class Node {
   public Node getRight(){
     return right;
   }
+  //Returns the reference to the int stored as count
   public int getCount(){
     return count;
   }
@@ -64,6 +68,7 @@ public class Node {
   public void setLeft(Node leftInput){
     this.left = leftInput;
   }
+  //Increments the count field
   public void incCount(){
     this.count++;
   }
