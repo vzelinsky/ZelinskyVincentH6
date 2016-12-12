@@ -3,16 +3,22 @@
  * 
  * Contains the necessary methods to create a Tree, interacts with Node.java
  */
+import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class Tree {
   //Private fields
   //Contains a reference to the root Node object
   private Node root;
+  private Node current;
   
   //Constructors
   //No argument constructor that when called creates an empty List
   public Tree() {
     //Sets root to null
     this.root = null;
+    this.current = null;
   }
   
   //Methods
@@ -20,6 +26,9 @@ public class Tree {
   //Returns the reference to the Node stored at head
   public Node getRoot() {
     return root;
+  }
+  public Node getCurrent() {
+    return current;
   }
   
   //addNode method
@@ -65,14 +74,36 @@ public class Tree {
   public void printInOrder() { 
     printInOrder(root);
   }
-  public void printInOrder(Node root){
-  if(root !=  null) {  
-   printInOrder(root.getLeft());  
-   //Visit the node by Printing the node data    
-   System.out.println(root.getData());  
-   printInOrder(root.getRight());  
-  }  
- } 
+  public void printInOrder(Node currNode){
+    if(currNode !=  null) {  
+      printInOrder(currNode.getLeft());  
+      //Visit the node by Printing the node data    
+      System.out.println(currNode.getData());  
+      printInOrder(currNode.getRight());  
+    }  
+  }
+  
+  public Node find(String data){
+    return find(data,root);
+  }
+  private Node find(String data, Node node){
+    if(node != null){
+        if(node.getData().compareTo(data) == 0){
+           return node;
+        } 
+        else {
+            Node foundNode = find(data, node.getLeft());
+            if(foundNode == null) {
+                foundNode = find(data, node.getRight());
+            }
+            return foundNode;
+         }
+    } 
+    else {
+        return null;
+    }
+  }
+  
   //deleteTree method
   //Removes references to the Tree, deleting the Tree
   public void deleteTree() {
@@ -82,5 +113,33 @@ public class Tree {
      */
     //Print success
     System.out.println("The Tree has been deleted");
+  }
+  
+  public void importTxt() {
+    File inputFile = new File("example.txt");
+    try {
+
+        Scanner scanner = new Scanner(inputFile);
+        
+        String[] splited = scanner.nextLine().toLowerCase().split("\\s+");
+        for(int i = 0; i < splited.length; i++)
+            this.insertNode(splited[i]);
+
+        scanner.close();
+    } 
+    catch (FileNotFoundException e) {   
+      System.out.println("shit");
+    }
+  }
+  public void printFrequencyHist(){
+   printFrequencyHist(root);
+  }
+  public void printFrequencyHist(Node currNode){
+    if(currNode !=  null) {  
+      printFrequencyHist(currNode.getLeft());  
+      //Visit the node by Printing the node data    
+      System.out.println(currNode.getData()+" "+currNode.getCount());
+      printFrequencyHist(currNode.getRight());  
+    }  
   }
 }
