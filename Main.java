@@ -34,7 +34,7 @@ public class Main {
     System.out.println("-----------------------");
     
     //Tests importTxt method
-    myTree.importTxt();
+    myTree.importTxt("example.txt");
     
     System.out.println("-----------------------");
     

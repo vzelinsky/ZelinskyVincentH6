@@ -151,14 +151,12 @@ public class Tree {
   }
   
   //importTxt method
-  /* Should accept fileName as an arugment but I ran out of time
-   */
-  //Imports a .txt file to the tree splitting each word
-  public void importTxt() {
+  //Imports a .txt File, fileLocation, to the tree splitting each word
+  public void importTxt(String fileLocation) {
     //delete anything currently stored in the Tree
     this.deleteTree();
     //creates a file object which passes our example text file as an arugment
-    File inputFile = new File("example.txt");
+    File inputFile = new File(fileLocation);
     try {
       //Scanner reads the file
       Scanner scanner = new Scanner(inputFile);
@@ -181,7 +179,7 @@ public class Tree {
   }
   
   //printFrequencyHist method
-  /* Would have liked to make this a method that called printInOrder but could not find a way to do so
+  /* Would have liked to have this method just call printInOrder but could not find a way to do so while adding counts
    */ 
   //Copies printInOrder but adds the count of each Node in the prints
   public void printFrequencyHist(){
